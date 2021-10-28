@@ -1,6 +1,7 @@
 import styles from '../../styles/Admin.module.css';
 import AuthCheck from '../../components/AuthCheck';
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
+import ImageUpLoader from '../../components/ImageUpLoader';
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -91,6 +92,8 @@ function PostForm({ defaultValues, postRef, preview }) {
       )}
 
       <div className={preview ? styles.hidden : styles.controls}>
+        <ImageUpLoader />
+
         <textarea
           name='content'
           ref={register({
